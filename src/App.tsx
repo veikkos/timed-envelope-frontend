@@ -4,22 +4,23 @@ import './App.css';
 const url = process.env.REACT_APP_ENVELOPE_BACKEND_URL;
 
 function App() {
-  console.log(url);
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="grid place-items-center h-screen bg-gray-800 text-stone-200">
+      <div className="rounded-md bg-cyan-600 p-3">
+        <form>
+          <div className="flex flex-col m-2">
+            <div>
+              <textarea id="message"
+                className="p-2.5 bg-gray-800 rounded-lg border"
+                placeholder="Your secret message...">
+              </textarea>
+            </div>
+            <div className="flex flex-row justify-center mt-2">
+              <input className="hover:underline cursor-pointer" type="submit" value="Encrypt" />
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
