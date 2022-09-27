@@ -4,6 +4,7 @@ import Calendar from 'react-calendar';
 import './App.css';
 import axios from 'axios';
 import { cryptico, RSAKey } from '@veikkos/cryptico';
+import moment from 'moment';
 const url = process.env.REACT_APP_ENVELOPE_BACKEND_URL;
 
 function App() {
@@ -19,7 +20,9 @@ function App() {
         // @ts-ignore
         const secret = cryptico.encrypt(plaintext, key, undefined);
         if ("cipher" in secret) {
-          console.log(`${calendarDate.toISOString()}_${secret.cipher}`);
+          const cipher = `${calendarDate.toISOString()}_${secret.cipher}`;
+          console.log(cipher);
+          alert(cipher)
         }
       }
     }
@@ -30,13 +33,25 @@ function App() {
 
     if (input) {
       const split = input.split("_");
-      const res = await axios.get(`${url}/privatekey/${split[0]}`);
-      const key = res.data.key;
-      if (key) {
-        const rsaKey = RSAKey.parse(key)
-        if (rsaKey) {
-          const plaintext = cryptico.decrypt(split[1], rsaKey);
-          console.log(plaintext);
+      try {
+        const res = await axios.get(`${url}/privatekey/${split[0]}`);
+        const key = res.data.key;
+        if (key) {
+          const rsaKey = RSAKey.parse(key)
+          if (rsaKey) {
+            const plaintext = cryptico.decrypt(split[1], rsaKey);
+            console.log(plaintext);
+            if ("plaintext" in plaintext) {
+              alert(plaintext.plaintext)
+            }
+          }
+        }
+      } catch (err: any) {
+        if (err.response.data.message === 'It\'s not yet time') {
+          const diff = new Date(input.split('_')[0]);
+          alert(`Can be decrypted in ${moment(diff).fromNow()}`)
+        } else {
+          alert('Unknown decryption error...')
         }
       }
     }
