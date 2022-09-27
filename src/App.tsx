@@ -3,7 +3,7 @@ import 'react-calendar/dist/Calendar.css';
 import Calendar from 'react-calendar';
 import './App.css';
 import axios from 'axios';
-import { cryptico, RSAKey } from '@daotl/cryptico';
+import { cryptico, RSAKey } from '@veikkos/cryptico';
 const url = process.env.REACT_APP_ENVELOPE_BACKEND_URL;
 
 function App() {
