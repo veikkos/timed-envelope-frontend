@@ -9,6 +9,7 @@ const url = process.env.REACT_APP_ENVELOPE_BACKEND_URL;
 
 function App() {
   const [calendarDate, onChange] = useState(new Date());
+  const [inputText, onInputChange] = useState('');
 
   async function encrypt(event: any) {
     const plaintext = event.target[0].value;
@@ -67,26 +68,33 @@ function App() {
     }
   };
 
+  const handleChange = (event: any) => {
+    onInputChange(event.target.value);
+  };
+
   return (
     <div className="grid place-items-center h-screen bg-gray-800 text-stone-200">
-      <div className="rounded-md bg-cyan-600 p-3">
+      <div className="rounded-md bg-cyan-600 shadow-md p-3">
         <form onSubmit={submit} >
           <div className="lex flex-col">
             <div className="flex-1 flex flex-col m-2">
               <textarea id="message"
                 className="p-2.5 bg-gray-800 rounded-lg border"
-                placeholder="Your secret message...">
+                placeholder="Your secret message..."
+                onChange={handleChange}>
               </textarea>
-              <div className="mt-3">
-                <Calendar onChange={onChange} value={calendarDate} />
+              <div className="mt-3 text-gray-600">
+                <Calendar onChange={onChange} minDate={new Date()} value={calendarDate} />
               </div>
             </div>
             <div className="flex flex-row justify-evenly mt-2">
-              <input className="hover:underline cursor-pointer"
+              <input className="button"
+                disabled={!inputText.length}
                 type="submit"
                 name="encrypt"
                 value="Encrypt" />
-              <input className="hover:underline cursor-pointer"
+              <input className="button"
+                disabled={!inputText.length}
                 type="submit"
                 name="decrypt"
                 value="Decrypt" />
