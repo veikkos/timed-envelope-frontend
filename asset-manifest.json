@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/timed-envelope-live/static/css/main.09d2238e.css",
+    "main.js": "/timed-envelope-live/static/js/main.c3551d55.js",
+    "index.html": "/timed-envelope-live/index.html",
+    "main.09d2238e.css.map": "/timed-envelope-live/static/css/main.09d2238e.css.map",
+    "main.c3551d55.js.map": "/timed-envelope-live/static/js/main.c3551d55.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.09d2238e.css",
+    "static/js/main.c3551d55.js"
+  ]
+}
