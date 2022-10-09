@@ -85,7 +85,7 @@ function App() {
     <div>
       <Spinner visible={enableSpinner}></Spinner>
       <div className="grid place-items-center h-screen text-stone-200">
-        <div className="container rounded-md bg-cyan-600 shadow-md p-4">
+        <div className="container rounded-md bg-cyan-600 shadow-lg shadow-cyan-900 p-4">
           <form onSubmit={submit} >
             <div className="flex flex-col">
               <div className="flex-1 flex flex-col m-2">
