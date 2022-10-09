@@ -34,26 +34,31 @@ function App() {
 
     if (input) {
       const split = input.split("_");
-      try {
-        const res = await axios.get(`${url}/privatekey/${split[0]}`);
-        const key = res.data.key;
-        if (key) {
-          const rsaKey = RSAKey.parse(key)
-          if (rsaKey) {
-            const plaintext = cryptico.decrypt(split[1], rsaKey);
-            console.log(plaintext);
-            if ("plaintext" in plaintext) {
-              alert(plaintext.plaintext)
+
+      if (split.length > 1 && isNaN(Date.parse(split[0])) === false) {
+        try {
+          const res = await axios.get(`${url}/privatekey/${split[0]}`);
+          const key = res.data.key;
+          if (key) {
+            const rsaKey = RSAKey.parse(key)
+            if (rsaKey) {
+              const plaintext = cryptico.decrypt(split[1], rsaKey);
+              console.log(plaintext);
+              if ("plaintext" in plaintext) {
+                alert(plaintext.plaintext)
+              }
             }
           }
+        } catch (err: any) {
+          if (err.response.data.message === 'It\'s not yet time') {
+            const diff = new Date(input.split('_')[0]);
+            alert(`Can be decrypted ${moment(diff).fromNow()}`)
+          } else {
+            alert('Unknown decryption error...')
+          }
         }
-      } catch (err: any) {
-        if (err.response.data.message === 'It\'s not yet time') {
-          const diff = new Date(input.split('_')[0]);
-          alert(`Can be decrypted in ${moment(diff).fromNow()}`)
-        } else {
-          alert('Unknown decryption error...')
-        }
+      } else {
+        alert('Not something we can decrypt...')
       }
     }
   }
@@ -74,20 +79,24 @@ function App() {
 
   return (
     <div className="grid place-items-center h-screen bg-gray-800 text-stone-200">
-      <div className="rounded-md bg-cyan-600 shadow-md p-3">
+      <div className="rounded-md bg-cyan-600 shadow-md p-4">
         <form onSubmit={submit} >
           <div className="lex flex-col">
             <div className="flex-1 flex flex-col m-2">
+              <h2 className="font-bold text-xl mb-4">Timed Envelope</h2>
               <textarea id="message"
                 className="p-2.5 bg-gray-800 rounded-lg border"
-                placeholder="Your secret message..."
+                placeholder="Your message to encrypt / decrypt..."
                 onChange={handleChange}>
               </textarea>
+              <div className="pt-2">
+                <h2 className="font-semibold text-lg">Open date (encryption only):</h2>
+              </div>
               <div className="mt-3 text-gray-600">
                 <Calendar onChange={onChange} minDate={new Date()} value={calendarDate} />
               </div>
             </div>
-            <div className="flex flex-row justify-evenly mt-2">
+            <div className="flex flex-row justify-evenly mt-2 text-lg">
               <input className="button"
                 disabled={!inputText.length}
                 type="submit"
