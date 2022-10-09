@@ -79,9 +79,9 @@ function App() {
 
   return (
     <div className="grid place-items-center h-screen bg-gray-800 text-stone-200">
-      <div className="rounded-md bg-cyan-600 shadow-md p-4">
+      <div className="container rounded-md bg-cyan-600 shadow-md p-4">
         <form onSubmit={submit} >
-          <div className="lex flex-col">
+          <div className="flex flex-col">
             <div className="flex-1 flex flex-col m-2">
               <h2 className="font-bold text-xl mb-4">Timed Envelope</h2>
               <textarea id="message"
@@ -92,7 +92,7 @@ function App() {
               <div className="pt-2">
                 <h2 className="font-semibold text-lg">Open date (encryption only):</h2>
               </div>
-              <div className="mt-3 text-gray-600">
+              <div className="mt-3 text-gray-600 flex justify-center">
                 <Calendar onChange={onChange} minDate={new Date()} value={calendarDate} />
               </div>
             </div>
