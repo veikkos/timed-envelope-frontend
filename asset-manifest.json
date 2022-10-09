@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/timed-envelope-live/static/css/main.09d2238e.css",
-    "main.js": "/timed-envelope-live/static/js/main.c3551d55.js",
+    "main.css": "/timed-envelope-live/static/css/main.1b887e7c.css",
+    "main.js": "/timed-envelope-live/static/js/main.370267d8.js",
     "index.html": "/timed-envelope-live/index.html",
-    "main.09d2238e.css.map": "/timed-envelope-live/static/css/main.09d2238e.css.map",
-    "main.c3551d55.js.map": "/timed-envelope-live/static/js/main.c3551d55.js.map"
+    "main.1b887e7c.css.map": "/timed-envelope-live/static/css/main.1b887e7c.css.map",
+    "main.370267d8.js.map": "/timed-envelope-live/static/js/main.370267d8.js.map"
   },
   "entrypoints": [
-    "static/css/main.09d2238e.css",
-    "static/js/main.c3551d55.js"
+    "static/css/main.1b887e7c.css",
+    "static/js/main.370267d8.js"
   ]
 }
