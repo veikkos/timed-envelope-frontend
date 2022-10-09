@@ -5,9 +5,19 @@
 }
 
 .button:disabled {
-    color: #57534E
+    color: #57534E;
 }
 
 .container {
     max-width: 600px;
+}
+
+.calendar-container {
+    width: auto;
+}
+
+@media (max-width: 440px) {
+    .calendar-container {
+        width: 300px;
+    }
 }

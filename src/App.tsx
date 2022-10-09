@@ -98,8 +98,10 @@ function App() {
                 <div className="pt-2">
                   <h2 className="font-semibold text-lg">Open date (encryption only):</h2>
                 </div>
-                <div className="mt-3 text-gray-600 flex justify-center">
-                  <Calendar onChange={onChange} minDate={new Date()} value={calendarDate} />
+                <div className="mt-3 text-gray-600 flex justify-center flex">
+                  <div className="calendar-container">
+                    <Calendar onChange={onChange} minDate={new Date()} value={calendarDate} />
+                  </div>
                 </div>
               </div>
               <div className="flex flex-row justify-evenly mt-2 text-lg">
