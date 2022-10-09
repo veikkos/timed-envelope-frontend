@@ -1,6 +1,7 @@
 {
   "name": "timed-envelope-frontend",
   "version": "0.1.0",
+  "homepage": "https://veikkos.github.io/timed-envelope-live",
   "private": true,
   "dependencies": {
     "@types/node": "^16.11.58",
@@ -16,6 +17,8 @@
     "typescript": "^4.8.3"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
@@ -40,6 +43,7 @@
   "devDependencies": {
     "@types/react-calendar": "^3.5.2",
     "autoprefixer": "^10.4.8",
+    "gh-pages": "^4.0.0",
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8"
   }
