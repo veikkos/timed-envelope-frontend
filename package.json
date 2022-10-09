@@ -1,7 +1,7 @@
 {
   "name": "timed-envelope-frontend",
   "version": "0.1.0",
-  "homepage": "https://veikkos.github.io/timed-envelope-live",
+  "homepage": "https://veikkos.github.io/timed-envelope-frontend",
   "private": true,
   "dependencies": {
     "@types/node": "^16.11.58",
