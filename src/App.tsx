@@ -78,7 +78,7 @@ function App() {
   };
 
   return (
-    <div className="grid place-items-center h-screen bg-gray-800 text-stone-200">
+    <div className="grid place-items-center h-screen text-stone-200">
       <div className="container rounded-md bg-cyan-600 shadow-md p-4">
         <form onSubmit={submit} >
           <div className="flex flex-col">
