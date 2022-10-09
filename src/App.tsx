@@ -84,40 +84,42 @@ function App() {
   return (
     <div>
       <Spinner visible={enableSpinner}></Spinner>
-      <div className="grid place-items-center h-screen text-stone-200 m-4">
-        <div className="container rounded-md bg-cyan-600 shadow-lg shadow-cyan-900 p-4">
-          <form onSubmit={submit} >
-            <div className="flex flex-col">
-              <div className="flex-1 flex flex-col m-2">
-                <h2 className="font-bold text-xl mb-4">Timed Envelope</h2>
-                <textarea id="message"
-                  className="p-2.5 bg-gray-800 rounded-lg border"
-                  placeholder="Your message to encrypt / decrypt..."
-                  onChange={handleChange}>
-                </textarea>
-                <div className="pt-2">
-                  <h2 className="font-semibold text-lg">Open date (encryption only):</h2>
-                </div>
-                <div className="mt-3 text-gray-600 flex justify-center flex">
-                  <div className="calendar-container">
-                    <Calendar onChange={onChange} minDate={new Date()} value={calendarDate} />
+      <div className="grid place-items-center h-screen text-stone-200">
+        <div className="container p-4">
+          <div className="rounded-md bg-cyan-600 shadow-lg shadow-cyan-900 p-4">
+            <form onSubmit={submit} >
+              <div className="flex flex-col">
+                <div className="flex-1 flex flex-col m-2">
+                  <h2 className="font-bold text-xl mb-4">Timed Envelope</h2>
+                  <textarea id="message"
+                    className="p-2.5 bg-gray-800 rounded-lg border"
+                    placeholder="Your message to encrypt / decrypt..."
+                    onChange={handleChange}>
+                  </textarea>
+                  <div className="pt-2">
+                    <h2 className="font-semibold text-lg">Open date (encryption only):</h2>
+                  </div>
+                  <div className="mt-3 text-gray-600 flex justify-center flex">
+                    <div className="calendar-container">
+                      <Calendar onChange={onChange} minDate={new Date()} value={calendarDate} />
+                    </div>
                   </div>
                 </div>
+                <div className="flex flex-row justify-evenly mt-2 text-lg">
+                  <input className="button"
+                    disabled={!inputText.length}
+                    type="submit"
+                    name="encrypt"
+                    value="Encrypt" />
+                  <input className="button"
+                    disabled={!inputText.length}
+                    type="submit"
+                    name="decrypt"
+                    value="Decrypt" />
+                </div>
               </div>
-              <div className="flex flex-row justify-evenly mt-2 text-lg">
-                <input className="button"
-                  disabled={!inputText.length}
-                  type="submit"
-                  name="encrypt"
-                  value="Encrypt" />
-                <input className="button"
-                  disabled={!inputText.length}
-                  type="submit"
-                  name="decrypt"
-                  value="Decrypt" />
-              </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>
