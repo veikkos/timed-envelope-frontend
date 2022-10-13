@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 WIP Web Frontend for Timed Envelope application. See also [backend implementation](https://github.com/veikkos/timed-envelope-backend).
 
+[Live deployment](https://veikkos.github.io/timed-envelope-frontend/)
+
 ## Available Scripts
 
 In the project directory, you can run:
