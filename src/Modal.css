@@ -4,11 +4,11 @@
     min-width: 400px;
 }
 
-.button {
+.close-button {
     transition-duration: 0.4s;
 }
 
-.button:hover {
+.close-button:hover {
     background-color: #723131;
     color: white;
 }

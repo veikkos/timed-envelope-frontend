@@ -51,6 +51,8 @@ function App() {
               if ("plaintext" in plaintext) {
                 setmodalText(plaintext.plaintext);
                 setEnableModal(true);
+              } else {
+                alert('Invalid input...')
               }
             }
           }
@@ -71,7 +73,6 @@ function App() {
   const submit = async (event: any) => {
     event.preventDefault();
     setEnableSpinner(true);
-    console.log(event.nativeEvent.submitter.name);
     if (event.nativeEvent.submitter.name === "encrypt") {
       await encrypt(event);
     } else {
