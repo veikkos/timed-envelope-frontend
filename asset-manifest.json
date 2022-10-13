@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/timed-envelope-frontend/static/css/main.4c0f1035.css",
-    "main.js": "/timed-envelope-frontend/static/js/main.66f1d87c.js",
+    "main.css": "/timed-envelope-frontend/static/css/main.faadb611.css",
+    "main.js": "/timed-envelope-frontend/static/js/main.5311d137.js",
     "index.html": "/timed-envelope-frontend/index.html",
-    "main.4c0f1035.css.map": "/timed-envelope-frontend/static/css/main.4c0f1035.css.map",
-    "main.66f1d87c.js.map": "/timed-envelope-frontend/static/js/main.66f1d87c.js.map"
+    "main.faadb611.css.map": "/timed-envelope-frontend/static/css/main.faadb611.css.map",
+    "main.5311d137.js.map": "/timed-envelope-frontend/static/js/main.5311d137.js.map"
   },
   "entrypoints": [
-    "static/css/main.4c0f1035.css",
-    "static/js/main.66f1d87c.js"
+    "static/css/main.faadb611.css",
+    "static/js/main.5311d137.js"
   ]
 }
