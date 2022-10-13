@@ -1,0 +1,14 @@
+.modal {
+    word-break: break-all;
+    max-width: 600px;
+    min-width: 400px;
+}
+
+.button {
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+    background-color: #723131;
+    color: white;
+}

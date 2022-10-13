@@ -15,3 +15,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.fade-out {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s ease-in-out 300ms, opacity 300ms;
+}
+
+.fade-in {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s ease-in-out 0s, opacity 300ms;
+}

@@ -6,12 +6,15 @@ import axios from 'axios';
 import { cryptico, RSAKey } from '@veikkos/cryptico';
 import moment from 'moment';
 import Spinner from './Spinner';
+import Modal from './Modal';
 const url = process.env.REACT_APP_ENVELOPE_BACKEND_URL;
 
 function App() {
   const [calendarDate, onChange] = useState(new Date());
   const [inputText, onInputChange] = useState('');
   const [enableSpinner, setEnableSpinner] = useState(false);
+  const [enableModal, setEnableModal] = useState(false);
+  const [modalText, setmodalText] = useState("");
 
   async function encrypt(event: any) {
     const plaintext = event.target[0].value;
@@ -24,8 +27,8 @@ function App() {
         const secret = cryptico.encrypt(plaintext, key, undefined);
         if ("cipher" in secret) {
           const cipher = `${calendarDate.toISOString()}_${secret.cipher}`;
-          console.log(cipher);
-          alert(cipher)
+          setmodalText(cipher);
+          setEnableModal(true);
         }
       }
     }
@@ -45,9 +48,9 @@ function App() {
             const rsaKey = RSAKey.parse(key)
             if (rsaKey) {
               const plaintext = cryptico.decrypt(split[1], rsaKey);
-              console.log(plaintext);
               if ("plaintext" in plaintext) {
-                alert(plaintext.plaintext)
+                setmodalText(plaintext.plaintext);
+                setEnableModal(true);
               }
             }
           }
@@ -84,6 +87,7 @@ function App() {
   return (
     <div>
       <Spinner visible={enableSpinner}></Spinner>
+      <Modal visible={enableModal} text={modalText} onClose={() => { setEnableModal(false) }}></Modal>
       <div className="grid place-items-center h-screen text-stone-200">
         <div className="container p-4">
           <div className="rounded-md bg-cyan-600 shadow-lg shadow-cyan-900 p-4">
