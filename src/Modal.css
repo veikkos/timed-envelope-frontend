@@ -5,10 +5,10 @@
 }
 
 .close-button {
-    transition-duration: 0.4s;
+    transition-duration: 0.1s;
+    @apply cursor-pointer
 }
 
 .close-button:hover {
-    background-color: #723131;
-    color: white;
+    @apply bg-red-800
 }

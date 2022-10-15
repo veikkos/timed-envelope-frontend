@@ -21,3 +21,24 @@
         width: 300px;
     }
 }
+
+.fade-out {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s ease-in-out 300ms, opacity 300ms;
+}
+
+.fade-in {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s ease-in-out 0s, opacity 300ms;
+}
+
+.inactive-background {
+    backdrop-filter: blur(2px);
+    @apply absolute bg-black bg-opacity-70 h-full w-full
+}
+
+.flex-center {
+    @apply flex justify-center items-center
+}
